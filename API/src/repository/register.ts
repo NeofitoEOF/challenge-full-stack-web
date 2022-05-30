@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IAddRegisterDTO } from "../useCases/AddRegister/IAddRegisterDTO";
+import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/IDeleteRegisterDTO";
 import { IEditRegisterDTO } from "../useCases/EditRegister/IEditRegisterDTO";
 import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
 
@@ -37,6 +38,13 @@ export class register {
       data: {
         name: data.Name,
         email: data.Email,
+      },
+    });
+  }
+  static async findByDelete(data: IDeleteRegisterDTO) {
+    return await prisma.user.delete({
+      where: {
+        cpf: data.Cpf,
       },
     });
   }

@@ -1,5 +1,6 @@
 import { IDeleteRegisterDTO } from "./IDeleteRegisterDTO";
 import { PrismaClient } from "@prisma/client";
+import { register } from "../../repository/register";
 
 const prisma = new PrismaClient();
 
@@ -8,12 +9,8 @@ export class DeleteUseUseCase {
 
   async execute(data: IDeleteRegisterDTO) {
     try {
-      const deleteRegister = await prisma.user.delete({
-        where: {
-          cpf: data.Cpf,
-        },
-      });
-     return deleteRegister 
+      const deleteRegister = register.findByDelete(data);
+      return deleteRegister;
     } catch (error) {
       throw new Error(error);
     }
