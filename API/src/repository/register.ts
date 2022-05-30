@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IAddRegisterDTO } from "../useCases/AddRegister/IAddRegisterDTO";
+import { IEditRegisterDTO } from "../useCases/EditRegister/IEditRegisterDTO";
 import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
 
 const prisma = new PrismaClient();
@@ -25,6 +26,17 @@ export class register {
         email: true,
         RA: true,
         cpf: true,
+      },
+    });
+  }
+  static async findByUpdate(data: IEditRegisterDTO) {
+    return await prisma.user.update({
+      where: {
+        RA: String(data.RA),
+      },
+      data: {
+        name: data.Name,
+        email: data.Email,
       },
     });
   }
