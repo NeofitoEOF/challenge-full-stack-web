@@ -1,8 +1,5 @@
 import {IAddRegisterDTO } from './IAddRegisterDTO'
-import { PrismaClient } from "@prisma/client";
-
-const prisma = new PrismaClient();
-
+import { register } from '../../repository/register';
 export class AddRegisterUseUseCase {
 
   constructor(){}
@@ -14,14 +11,7 @@ export class AddRegisterUseUseCase {
     if(data.RA === null || data.RA === '') throw new Error('Unable to create a blank RA')
 
     try {
-      let createNewUser = await prisma.user.create({
-        data: {
-          name: data.Name,
-          email: data.Email,
-          cpf: data.Cpf,
-          RA: data.RA
-        }
-      });
+      let createNewUser =  register.findCreater(data);
       return createNewUser;
     } catch (error) {
       throw new Error(error.message)
