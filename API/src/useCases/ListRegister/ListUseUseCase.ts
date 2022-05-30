@@ -1,5 +1,6 @@
 import { IListUserDTO } from "./IListUserDTO";
 import { PrismaClient } from "@prisma/client";
+import { register } from "../../repository/register";
 
 const prisma = new PrismaClient();
 
@@ -8,17 +9,7 @@ export class ListUseUserCase {
 
   async execute(data: IListUserDTO) {
     try {
-      const listUser = await prisma.user.findUnique({
-        where: {
-          cpf: data.Cpf,
-        },
-        select: {
-          name: true,
-          email: true,
-          RA: true,
-          cpf: true,
-        },
-      });
+      const listUser = register.findByUnique(data);
       return listUser;
     } catch (error) {
       throw new Error(error);
