@@ -20,3 +20,11 @@ model User {
   createAdt DateTime @default(now())
   updateAdt DateTime @default(now())
 }
+
+model Master {
+  id String @id @default(cuid())
+  email String @unique()
+  password String
+  createAdt DateTime @default(now())
+  updateAdt DateTime @default(now())
+}

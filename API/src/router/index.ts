@@ -3,9 +3,14 @@ import { addControllerRegister } from "../useCases/AddRegister";
 import { listControllerUsers } from "../useCases/ListRegister";
 import { editControllerRegister } from "../useCases/EditRegister";
 import { deleteRegisterController } from "../useCases/DeleteRegister";
+import { addControllerMaster } from "../useCases/AddRegisterMaster";
 const router = Router();
 
 router.post("/register", (request, response) => {
+  return addControllerMaster.handle(request, response);
+});
+
+router.post("/register/student", (request, response) => {
   return addControllerRegister.handle(request, response);
 });
 router.get("/listUser/:cpf?", (request, response) => {

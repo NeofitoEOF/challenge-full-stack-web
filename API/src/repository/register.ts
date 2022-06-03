@@ -1,5 +1,6 @@
 import { PrismaClient } from "@prisma/client";
 import { IAddRegisterDTO } from "../useCases/AddRegister/IAddRegisterDTO";
+import { IAddRegisterMasterDTO } from "../useCases/AddRegisterMaster/interface/IAddRegisterMasterDTO";
 import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/IDeleteRegisterDTO";
 import { IEditRegisterDTO } from "../useCases/EditRegister/IEditRegisterDTO";
 import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
@@ -45,6 +46,16 @@ export class register {
     return await prisma.user.delete({
       where: {
         cpf: data.Cpf,
+      },
+    });
+  }
+}
+export class registerMaster {
+  static async createMaster(data: IAddRegisterMasterDTO) {
+    return await prisma.master.create({
+      data: {
+        email: data.Email,
+        password: data.Password,
       },
     });
   }
