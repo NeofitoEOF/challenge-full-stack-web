@@ -7,7 +7,7 @@ export class AddRegisterUseUseCase {
     if (data.Password === null || data.Password === "")
       throw new Error("Unable to create a blank user");
     try {
-      let createNewUser = registerMaster.createMaster(data);
+      const createNewUser = await registerMaster.createMaster(data);
       return createNewUser;
     } catch (error) {
       throw new Error(error.message);
