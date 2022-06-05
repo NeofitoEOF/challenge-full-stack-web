@@ -4,6 +4,7 @@ import { IAddRegisterMasterDTO } from "../useCases/AddRegisterMaster/interface/I
 import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/IDeleteRegisterDTO";
 import { IEditRegisterDTO } from "../useCases/EditRegister/IEditRegisterDTO";
 import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
+import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -52,10 +53,11 @@ export class register {
 }
 export class registerMaster {
   static async createMaster(data: IAddRegisterMasterDTO) {
+    const createSenhaHash = await bcrypt.hash(data.Password, 10);
     return await prisma.master.create({
       data: {
         email: data.Email,
-        password: data.Password,
+        password: createSenhaHash,
       },
     });
   }
