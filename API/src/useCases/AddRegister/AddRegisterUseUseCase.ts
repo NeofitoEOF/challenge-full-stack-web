@@ -1,5 +1,5 @@
 import {IAddRegisterDTO } from './IAddRegisterDTO'
-import { register } from '../../repository/register';
+import { register } from '../../repository/ormUtilizado';
 export class AddRegisterUseUseCase {
 
   constructor(){}

@@ -1,6 +1,6 @@
 import { IEditRegisterDTO } from "./IEditRegisterDTO";
 import { PrismaClient } from "@prisma/client";
-import { register } from "../../repository/register";
+import { register } from "../../repository/ormUtilizado";
 
 const prisma = new PrismaClient();
 

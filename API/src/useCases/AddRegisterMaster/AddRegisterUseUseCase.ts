@@ -1,5 +1,5 @@
 import { IAddRegisterMasterDTO } from "./interface/IAddRegisterMasterDTO";
-import { registerMaster } from "../../repository/register";
+import { registerMaster } from "../../repository/ormUtilizado";
 export class AddRegisterUseUseCase {
   async execute(data: IAddRegisterMasterDTO) {
     if (data.Email === null || data.Email === "")
