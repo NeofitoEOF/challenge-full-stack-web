@@ -34,13 +34,14 @@ export class register {
     });
   }
   static async findByEmail(data: ILoginDTO) {
-    return await prisma.user.findUnique({
+    return prisma.master.findUnique({
       where: {
-        cpf: data.Email,
+        email: data.Email,
       },
       select: {
-        name: true,
         email: true,
+        password: true,
+        id: true,
       },
     });
   }
