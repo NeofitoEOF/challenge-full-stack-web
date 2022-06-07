@@ -1,4 +1,4 @@
-import { IListUserDTO } from "./IListUserDTO";
+import { IListUserDTO } from "./interface/IListUserDTO";
 import { PrismaClient } from "@prisma/client";
 import { register } from "../../repository/ormUtilizado";
 
