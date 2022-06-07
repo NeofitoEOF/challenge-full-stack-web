@@ -1,4 +1,4 @@
-import { IEditRegisterDTO } from "./IEditRegisterDTO";
+import { IEditRegisterDTO } from "./interface/IEditRegisterDTO";
 import { PrismaClient } from "@prisma/client";
 import { register } from "../../repository/ormUtilizado";
 

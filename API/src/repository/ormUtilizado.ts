@@ -1,10 +1,11 @@
 import { PrismaClient } from "@prisma/client";
-import { IAddRegisterDTO } from "../useCases/AddRegister/IAddRegisterDTO";
+import { IAddRegisterDTO } from "../useCases/AddRegister/interface/IAddRegisterDTO";
 import { IAddRegisterMasterDTO } from "../useCases/AddRegisterMaster/interface/IAddRegisterMasterDTO";
-import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/IDeleteRegisterDTO";
-import { IEditRegisterDTO } from "../useCases/EditRegister/IEditRegisterDTO";
+import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/interface/IDeleteRegisterDTO";
+import { IEditRegisterDTO } from "../useCases/EditRegister/interface/IEditRegisterDTO";
 import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
 import bcrypt from "bcryptjs";
+import { ILoginDTO } from "../useCases/Login/interface/ILoginDTO";
 
 const prisma = new PrismaClient();
 
@@ -29,6 +30,17 @@ export class register {
         email: true,
         RA: true,
         cpf: true,
+      },
+    });
+  }
+  static async findByEmail(data: ILoginDTO) {
+    return await prisma.user.findUnique({
+      where: {
+        cpf: data.Email,
+      },
+      select: {
+        name: true,
+        email: true,
       },
     });
   }

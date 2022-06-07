@@ -5,6 +5,7 @@ import { editControllerRegister } from "../useCases/EditRegister";
 import { deleteRegisterController } from "../useCases/DeleteRegister";
 import { addControllerMaster } from "../useCases/AddRegisterMaster";
 import { checkJwt } from "../middlewares/checkJwt";
+import { loginControllerUsers } from "../useCases/Login";
 
 const router = Router();
 
@@ -12,7 +13,11 @@ router.post("/register", (request, response) => {
   return addControllerMaster.handle(request, response);
 });
 
-router.post("/register/student", checkJwt, (request, response) => {
+router.post("/login", (request, response) => {
+  return loginControllerUsers.handle(request, response);
+});
+
+router.post("/register/student",  (request, response) => {
   return addControllerRegister.handle(request, response);
 });
 router.get("/listUser/:cpf?", checkJwt, (request, response) => {

@@ -2,10 +2,8 @@ import { IAddRegisterMasterDTO } from "./interface/IAddRegisterMasterDTO";
 import { registerMaster } from "../../repository/ormUtilizado";
 export class AddRegisterUseUseCase {
   async execute(data: IAddRegisterMasterDTO) {
-    if (data.Email === null || data.Email === "")
-      throw new Error("Unable to create a blank email");
-    if (data.Password === null || data.Password === "")
-      throw new Error("Unable to create a blank user");
+    if (!data.Email) throw new Error("Unable to create a blank email");
+    if (!data.Password) throw new Error("Unable to create a blank user");
     try {
       const createNewUser = await registerMaster.createMaster(data);
       return createNewUser;

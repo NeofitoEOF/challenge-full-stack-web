@@ -1,12 +1,10 @@
-import { IDeleteRegisterDTO } from "./IDeleteRegisterDTO";
+import { IDeleteRegisterDTO } from "./interface/IDeleteRegisterDTO";
 import { PrismaClient } from "@prisma/client";
 import { register } from "../../repository/ormUtilizado";
 
 const prisma = new PrismaClient();
 
 export class DeleteUseUseCase {
-  constructor() {}
-
   async execute(data: IDeleteRegisterDTO) {
     try {
       const deleteRegister = register.findByDelete(data);
