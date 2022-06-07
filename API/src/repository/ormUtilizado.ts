@@ -3,7 +3,7 @@ import { IAddRegisterDTO } from "../useCases/AddRegister/interface/IAddRegisterD
 import { IAddRegisterMasterDTO } from "../useCases/AddRegisterMaster/interface/IAddRegisterMasterDTO";
 import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/interface/IDeleteRegisterDTO";
 import { IEditRegisterDTO } from "../useCases/EditRegister/interface/IEditRegisterDTO";
-import { IListUserDTO } from "../useCases/ListRegister/IListUserDTO";
+import { IListUserDTO } from "../useCases/ListRegister/interface/IListUserDTO";
 import bcrypt from "bcryptjs";
 import { ILoginDTO } from "../useCases/Login/interface/ILoginDTO";
 
@@ -41,6 +41,17 @@ export class register {
       select: {
         email: true,
         password: true,
+        id: true,
+      },
+    });
+  }
+
+  static async findById(data: ILoginDTO) {
+    return prisma.master.findUnique({
+      where: {
+        id: data.id,
+      },
+      select: {
         id: true,
       },
     });

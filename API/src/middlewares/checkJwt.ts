@@ -8,18 +8,23 @@ export const checkJwt = async (
   res: Response,
   next: NextFunction
 ) => {
-  const token = <string>req.headers["auth"];
-  let jwtPayload;
+  const authorization = req.headers["authorization"];
+  if (!authorization) {
+    return res
+      .status(401)
+      .json({ error: true, code: 130, message: `O token está expirado!!` });
+  }
+  const [bearer, token] = authorization.split(" ");
   try {
-    jwtPayload = <any>jwt.verify(token, auth.secret);
-    if (!jwtPayload) {
-      return res
-        .status(401)
-        .json({ error: true, code: 130, message: `O token está expirado!!` });
+    const decoded = jwt.verify(token, auth.secret);
+    if (!decoded) {
+      return res.status(401).json({
+        error: true,
+        code: 130,
+        message: `O token está expirado!!`,
+      });
     } else {
-      const verifyId = await register.findByUnique(jwtPayload);
-      console.log('Aqui', verifyId)
-      if (!verifyId) throw new Error();
+      next();
     }
   } catch (error) {
     res.status(401).send({
