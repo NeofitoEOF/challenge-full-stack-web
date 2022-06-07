@@ -17,7 +17,7 @@ router.post("/login", (request, response) => {
   return loginControllerUsers.handle(request, response);
 });
 
-router.post("/register/student",  (request, response) => {
+router.post("/register/student", checkJwt, (request, response) => {
   return addControllerRegister.handle(request, response);
 });
 router.get("/listUser/:cpf?", checkJwt, (request, response) => {
