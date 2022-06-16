@@ -1,7 +1,7 @@
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
 import { auth } from "../config/Auth";
-import { register } from "../repository/ormUtilizado";
+import { register } from "../repository/findByCreaterMaster";
 
 export const checkJwt = async (
   req: Request,

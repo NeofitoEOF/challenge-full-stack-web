@@ -1,5 +1,6 @@
 import { IAddRegisterDTO } from "./interface/IAddRegisterDTO";
-import { register } from "../../repository/ormUtilizado";
+import { create } from "../../repository/findCreater";
+
 export class AddRegisterUseUseCase {
   async execute(data: IAddRegisterDTO) {
     if (!data.Name) throw new Error("Unable to create a blank user");
@@ -8,7 +9,7 @@ export class AddRegisterUseUseCase {
     if (!data.RA) throw new Error("Unable to create a blank RA");
 
     try {
-      let createNewUser = register.findCreater(data);
+      let createNewUser = create.findCreater(data);
       return createNewUser;
     } catch (error) {
       throw new Error(error.message);

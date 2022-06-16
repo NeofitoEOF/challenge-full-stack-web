@@ -1,5 +1,5 @@
 import { IAddRegisterMasterDTO } from "./interface/IAddRegisterMasterDTO";
-import { registerMaster } from "../../repository/ormUtilizado";
+import { registerMaster } from "../../repository/findByCreaterMaster";
 export class AddRegisterUseUseCase {
   async execute(data: IAddRegisterMasterDTO) {
     if (!data.Email) throw new Error("Unable to create a blank email");

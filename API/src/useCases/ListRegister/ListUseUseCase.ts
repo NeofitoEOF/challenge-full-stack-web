@@ -1,15 +1,11 @@
 import { IListUserDTO } from "./interface/IListUserDTO";
-import { PrismaClient } from "@prisma/client";
-import { register } from "../../repository/ormUtilizado";
-
-const prisma = new PrismaClient();
-
+import { unique } from "../../repository/findByUnique";
 export class ListUseUserCase {
   constructor() {}
 
   async execute(data: IListUserDTO) {
     try {
-      const listUser = register.findByUnique(data);
+      const listUser = unique.findByUnique(data);
       return listUser;
     } catch (error) {
       throw new Error(error);

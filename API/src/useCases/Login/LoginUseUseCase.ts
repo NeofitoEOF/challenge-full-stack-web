@@ -1,5 +1,5 @@
 import { ILoginDTO } from "./interface/ILoginDTO";
-import { register } from "../../repository/ormUtilizado";
+import { register } from "../../repository/findByCreaterMaster";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { auth } from "../../config/Auth";

@@ -1,13 +1,9 @@
 import { IEditRegisterDTO } from "./interface/IEditRegisterDTO";
-import { PrismaClient } from "@prisma/client";
-import { register } from "../../repository/ormUtilizado";
-
-const prisma = new PrismaClient();
-
+import { update } from "../../repository/findByUpdate";
 export class EditUseUseCase {
   async execute(data: IEditRegisterDTO) {
     try {
-      const EditUpate = register.findByUpdate(data)
+      const EditUpate = update.findByUpdate(data);
       return EditUpate;
     } catch (error) {
       throw new Error(error.message);
