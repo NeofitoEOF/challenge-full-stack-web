@@ -1,14 +1,14 @@
 import { ILoginDTO } from "./interface/ILoginDTO";
-import { register } from "../../repository/findByCreaterMaster";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { auth } from "../../config/Auth";
+import { email } from "../../repository/findByEmail";
 export class LoginUseUseCase {
   async execute(data: ILoginDTO): Promise<string> {
     if (!data.Email) throw new Error("Unable to verify a blank email");
     if (!data.Password) throw new Error("Unable to verify a blank user");
     try {
-      const verifyData = await register.findByEmail(data);
+      const verifyData = await email.findByEmail(data);
       if (!verifyData) throw new Error("Email alread not exists");
 
       if (!(await bcrypt.compare(String(data.Password), verifyData.password)))
