@@ -1,6 +1,7 @@
 import { IEditRegisterDTO } from "./interface/IEditRegisterDTO";
 import { update } from "../../repository/findByUpdate";
-export class EditUseUseCase {
+import { IEditRegister } from "./interface/IEditRegister";
+export class EditUseUseCase implements IEditRegister {
   async execute(data: IEditRegisterDTO) {
     try {
       const EditUpate = update.findByUpdate(data);

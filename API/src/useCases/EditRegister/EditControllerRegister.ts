@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
 import { EditUseUseCase } from "./EditUseUseCase";
+import { IEditRegister } from "./interface/IEditRegister";
 
 export class EditControllerRegister {
-  constructor(private editUseUseCase: EditUseUseCase) {}
+  constructor(private editUseUseCase: IEditRegister) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     const data = request.body;
