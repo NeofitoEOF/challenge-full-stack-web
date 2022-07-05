@@ -3,7 +3,8 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import { auth } from "../../config/Auth";
 import { email } from "../../repository/findByEmail";
-export class LoginUseUseCase {
+import { ILogin } from "./interface/ILogin";
+export class LoginUseUseCase implements ILogin {
   async execute(data: ILoginDTO): Promise<string> {
     if (!data.Email) throw new Error("Unable to verify a blank email");
     if (!data.Password) throw new Error("Unable to verify a blank user");

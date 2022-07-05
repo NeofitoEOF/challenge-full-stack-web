@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
+import { ILogin } from "./interface/ILogin";
 import { LoginUseUseCase } from "./LoginUseUseCase";
 
 export class LoginControllerUsers {
-  constructor(private loginUseUseCase: LoginUseUseCase) {}
+  constructor(private loginUseUseCase: ILogin) {}
 
   async handle(request: Request, response: Response) {
     const { email, password } = request.body;
