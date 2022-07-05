@@ -1,8 +1,7 @@
 import { IListUserDTO } from "./interface/IListUserDTO";
 import { unique } from "../../repository/findByUnique";
-export class ListUseUserCase {
-  constructor() {}
-
+import { IListUser } from "./interface/IListUser";
+export class ListUseUserCase implements IListUser {
   async execute(data: IListUserDTO) {
     try {
       const listUser = unique.findByUnique(data);

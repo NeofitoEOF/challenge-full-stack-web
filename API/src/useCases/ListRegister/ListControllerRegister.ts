@@ -1,8 +1,9 @@
 import { Request, Response } from "express";
+import { IListUser } from "./interface/IListUser";
 import { ListUseUserCase } from "./ListUseUseCase";
 
 export class ListUserController {
-  constructor(private listUseUserCase: ListUseUserCase) {}
+  constructor(private listUseUserCase: IListUser) {}
 
   async handle(request: Request, response: Response): Promise<any> {
     const cpf = request.params.cpf;
