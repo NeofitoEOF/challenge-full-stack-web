@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
-import { AddRegisterUseUseCase } from "./AddRegisterUseUseCase";
+import { IAddRegister } from "./interface/IAddRegister";
 
 export class AddRegisterUsers {
-  constructor(private addRegisterUseUseCase: AddRegisterUseUseCase) {}
+  constructor(private addRegisterUseUseCase: IAddRegister) {}
 
   async handle(request: Request, response: Response): Promise<Response> {
     const { name, email, ra, cpf } = request.body;

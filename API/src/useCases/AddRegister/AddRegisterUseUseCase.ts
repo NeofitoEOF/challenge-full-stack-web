@@ -1,7 +1,8 @@
 import { IAddRegisterDTO } from "./interface/IAddRegisterDTO";
 import { create } from "../../repository/findCreater";
+import { IAddRegister } from "./interface/IAddRegister";
 
-export class AddRegisterUseUseCase {
+export class AddRegisterUseUseCase implements IAddRegister {
   async execute(data: IAddRegisterDTO) {
     if (!data.Name) throw new Error("Unable to create a blank user");
     if (!data.Email) throw new Error("Unable to create a blank email");
