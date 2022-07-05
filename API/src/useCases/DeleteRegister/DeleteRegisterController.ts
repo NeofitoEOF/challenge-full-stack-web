@@ -1,12 +1,12 @@
 import { Request, Response } from "express";
-import { DeleteUseUseCase } from "./DeleteUseUseCase";
+import { IDeleteRegister } from "./interface/IDeleteRegister";
 
 export class DeleteRegisterController {
-  constructor(private deleteUseUseCase: DeleteUseUseCase) {}
+  constructor(private deleteUseUseCase: IDeleteRegister) {}
   async handle(request: Request, response: Response): Promise<Response> {
     const cpf = request.params.cpf;
     try {
-      await this.deleteUseUseCase.execute({Cpf :cpf});
+      await this.deleteUseUseCase.execute({ Cpf: cpf });
       return response.status(200).send();
     } catch (error) {
       return response
