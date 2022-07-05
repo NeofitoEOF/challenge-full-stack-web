@@ -1,6 +1,7 @@
 import { IAddRegisterMasterDTO } from "./interface/IAddRegisterMasterDTO";
 import { registerMaster } from "../../repository/findByCreaterMaster";
-export class AddRegisterUseUseCase {
+import { IAddRegisterMaster } from "./interface/IAddRegisterMaster";
+export class AddRegisterUseUseCase implements IAddRegisterMaster {
   async execute(data: IAddRegisterMasterDTO) {
     if (!data.Email) throw new Error("Unable to create a blank email");
     if (!data.Password) throw new Error("Unable to create a blank user");
