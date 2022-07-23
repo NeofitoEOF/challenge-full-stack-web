@@ -1,5 +1,5 @@
 import { IListUserDTO } from "./interface/IListUserDTO";
-import { unique } from "../../repository/findByUnique";
+import { unique } from "../../repository/FindByUnique";
 import { IListUser } from "./interface/IListUser";
 export class ListUseUserCase implements IListUser {
   async execute(data: IListUserDTO) {

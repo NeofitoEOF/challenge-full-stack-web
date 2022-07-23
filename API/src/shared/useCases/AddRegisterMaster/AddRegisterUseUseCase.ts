@@ -1,5 +1,5 @@
 import { IAddRegisterMasterDTO } from "./interface/IAddRegisterMasterDTO";
-import { registerMaster } from "../../repository/findByCreaterMaster";
+import { registerMaster } from "../../repository/FindByCreaterMaster";
 import { IAddRegisterMaster } from "./interface/IAddRegisterMaster";
 export class AddRegisterUseUseCase implements IAddRegisterMaster {
   async execute(data: IAddRegisterMasterDTO) {

@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
-import { auth } from "../../shared/config/Auth";
+import { auth } from "../../shared/config/Auth/Index";
 
 export const checkJwt = async (
   req: Request,

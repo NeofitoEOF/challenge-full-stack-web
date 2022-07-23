@@ -1,5 +1,5 @@
 import { IAddRegisterDTO } from "./interface/IAddRegisterDTO";
-import { create } from "../../repository/findCreater";
+import { create } from "../../repository/FindCreater";
 import { IAddRegister } from "./interface/IAddRegister";
 
 export class AddRegisterUseUseCase implements IAddRegister {

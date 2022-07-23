@@ -4,7 +4,7 @@ import { listControllerUsers } from "../../shared/useCases/ListRegister";
 import { editControllerRegister } from "../../shared/useCases/EditRegister";
 import { deleteRegisterController } from "../../shared/useCases/DeleteRegister";
 import { addControllerMaster } from "../../shared/useCases/AddRegisterMaster";
-import { checkJwt } from "../middlewares/checkJwt";
+import { checkJwt } from "../middlewares/CheckJwt";
 import { loginControllerUsers } from "../../shared/useCases/Login";
 
 const router = Router();

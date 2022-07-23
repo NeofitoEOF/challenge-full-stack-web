@@ -1,5 +1,5 @@
 import { IDeleteRegisterDTO } from "./interface/IDeleteRegisterDTO";
-import { Delete } from "../../repository/findByDelete";
+import { Delete } from "../../repository/FindByDelete";
 import { IDeleteRegister } from "./interface/IDeleteRegister";
 export class DeleteUseUseCase implements IDeleteRegister {
   async execute(data: IDeleteRegisterDTO) {

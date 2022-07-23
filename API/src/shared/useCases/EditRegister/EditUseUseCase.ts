@@ -1,5 +1,5 @@
 import { IEditRegisterDTO } from "./interface/IEditRegisterDTO";
-import { update } from "../../repository/findByUpdate";
+import { update } from "../../repository/FindByUpdate";
 import { IEditRegister } from "./interface/IEditRegister";
 export class EditUseUseCase implements IEditRegister {
   async execute(data: IEditRegisterDTO) {

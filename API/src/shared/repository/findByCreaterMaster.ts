@@ -1,9 +1,5 @@
 import { PrismaClient } from "@prisma/client";
-import { IAddRegisterDTO } from "../useCases/AddRegister/interface/IAddRegisterDTO";
 import { IAddRegisterMasterDTO } from "../useCases/AddRegisterMaster/interface/IAddRegisterMasterDTO";
-import { IDeleteRegisterDTO } from "../useCases/DeleteRegister/interface/IDeleteRegisterDTO";
-import { IEditRegisterDTO } from "../useCases/EditRegister/interface/IEditRegisterDTO";
-import { IListUserDTO } from "../useCases/ListRegister/interface/IListUserDTO";
 import bcrypt from "bcryptjs";
 const prisma = new PrismaClient();
 
