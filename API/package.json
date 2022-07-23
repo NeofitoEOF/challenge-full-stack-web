@@ -4,8 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/server.ts",
-    "swagger-autogen": "node swagger.ts"
+    "dev": "tsnd --transpile-only --respawn --ignore-watch node_modules src/api/server.ts"
   },
   "dependencies": {
     "@prisma/client": "^3.13.0",
