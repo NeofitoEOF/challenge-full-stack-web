@@ -1,6 +1,6 @@
 import { Request, Response, NextFunction } from "express";
 import * as jwt from "jsonwebtoken";
-import { auth } from "../config/Auth";
+import { auth } from "../../shared/config/Auth";
 
 export const checkJwt = async (
   req: Request,
@@ -13,7 +13,7 @@ export const checkJwt = async (
       .status(401)
       .json({ error: true, code: 130, message: `O token está expirado!!` });
   }
-  const [bearer, token] = authorization.split(" ");
+  const [, token] = authorization.split(" ");
   try {
     const decoded = jwt.verify(token, auth.secret);
     if (!decoded) {

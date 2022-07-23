@@ -1,11 +1,11 @@
 import { request, response, Router } from "express";
-import { addControllerRegister } from "../useCases/AddRegister";
-import { listControllerUsers } from "../useCases/ListRegister";
-import { editControllerRegister } from "../useCases/EditRegister";
-import { deleteRegisterController } from "../useCases/DeleteRegister";
-import { addControllerMaster } from "../useCases/AddRegisterMaster";
+import { addControllerRegister } from "../../shared/useCases/AddRegister";
+import { listControllerUsers } from "../../shared/useCases/ListRegister";
+import { editControllerRegister } from "../../shared/useCases/EditRegister";
+import { deleteRegisterController } from "../../shared/useCases/DeleteRegister";
+import { addControllerMaster } from "../../shared/useCases/AddRegisterMaster";
 import { checkJwt } from "../middlewares/checkJwt";
-import { loginControllerUsers } from "../useCases/Login";
+import { loginControllerUsers } from "../../shared/useCases/Login";
 
 const router = Router();
 
